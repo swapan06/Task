@@ -1,9 +1,11 @@
 import userStatus from './auth'
 import { combineReducers } from 'redux'
+import datainput from './data'
 
 const rootReducers = combineReducers(
     {
-        userStatus
+        userStatus,
+        datainput
     }
 )
 export default rootReducers

@@ -37,15 +37,28 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         marginRight: 10,
     },
+    mapview: {
+        flexDirection: "row",
+        marginHorizontal: 10,
+        colors: 'ightGrey',
+        borderWidth: 2,
+        marginVertical: 5,
+        borderRadius: 10
+    },
     //AddDetailsScreen//
     addtext: {
         fontSize: 18,
         fontWeight: 'bold',
         color: '#f5821d',
         marginTop: 5
-
+    },
+    error: {
+        fontSize: 12,
+        color: 'red',
+        textAlign: 'left',
 
     },
+
 
 })
 export default styles
