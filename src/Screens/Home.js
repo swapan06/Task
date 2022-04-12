@@ -9,12 +9,16 @@ import datainput from '../redux/reducers/data'
 
 
 function Home({ navigation }) {
-    const dispatch = useDispatch()
+    console.log(datainput)
+    const dispatch = useDispatch();
     const list = useSelector((state) => state.datainput.list)
+    console.log(list)
     return (
         <>
             {
+
                 list.map((elem) => {
+
                     // ---------------list--------------//
                     return (
                         <View style={styles.mapview} key={elem.id}>

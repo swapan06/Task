@@ -1,9 +1,11 @@
+import type from "../type";
+
 const initiallistState = {
     list: [],
 };
 const datainput = (state = initiallistState, action) => {
     switch (action.type) {
-        case 'ADD_DATA':
+        case type.ADD_DETAILS:
             const { id, data } = action.payload;
             return {
                 ...state,
@@ -19,13 +21,6 @@ const datainput = (state = initiallistState, action) => {
 
                     },
                 ],
-            }
-        case 'DELETE_DATA':
-
-            const newlist = state.list.filter((elem) => elem.id !== action.id)
-            return {
-                ...state,
-                list: newlist
             }
 
         default: return state

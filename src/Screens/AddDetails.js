@@ -19,8 +19,6 @@ function AddDetails({ navigation }) {
     const [showaddress, setshowAddress] = useState(false);
 
     const dispatch = useDispatch();
-
-
     const data = { addname, age, rollnumber, addphone, address }
 
     const Submit = () => {
@@ -40,7 +38,7 @@ function AddDetails({ navigation }) {
             setshowPhone(false)
         }
         else {
-            console.log(data)
+            // console.log(data)
 
             setshowAddress(false);
             dispatch(AddSubmit(data))
