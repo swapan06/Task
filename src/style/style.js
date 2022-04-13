@@ -25,13 +25,15 @@ const styles = StyleSheet.create({
         width: width / 1.1,
         marginTop: 10,
         borderWidth: 0.8,
-        padding: 5,
+        padding: 15,
         borderRadius: 6,
-        borderColor: 'black'
+
+
     },
     buttonView: {
         margin: 15,
         padding: 20,
+
     },
     btncontainer: {
         marginBottom: 10,
@@ -40,10 +42,17 @@ const styles = StyleSheet.create({
     mapview: {
         flexDirection: "row",
         marginHorizontal: 10,
-        colors: 'ightGrey',
-        borderWidth: 2,
-        marginVertical: 5,
-        borderRadius: 10
+        borderWidth: 1.3,
+        borderColor: '#f5821d',
+        marginVertical: 8,
+        borderRadius: 10,
+        backgroundColor: '#fae8c8',
+        padding: 10
+    },
+    textdata: {
+        fontSize: 14,
+        color: 'black',
+        marginVertical: 2
     },
     //AddDetailsScreen//
     addtext: {

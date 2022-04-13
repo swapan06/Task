@@ -3,14 +3,22 @@ import { View, Text, TextInput, Image, Button } from 'react-native'
 import styles from '../style/style'
 import { images } from '../assets/images/images'
 import { useDispatch } from 'react-redux';
-import { AddSubmit } from '../redux/actions/auth';
+import { AddSubmit, editDetails } from '../redux/actions/addDetails';
 
-function AddDetails({ navigation }) {
-    const [addname, setName] = useState('swapan');
-    const [age, setAge] = useState('24');
-    const [rollnumber, setRollnumber] = useState('1110');
-    const [addphone, setPhone] = useState('1234567891');
-    const [address, setAddress] = useState('mohali');
+function AddDetails({ navigation, route }) {
+
+    //data through navigation
+    const allData = route?.params?.Data;
+    const allIndex = route?.params?.Index;
+    const editById = allData?.id;
+    console.log("data fater navigating on add details", allData, allIndex, editById);
+
+
+    const [name, setName] = useState(allData ? allData?.name : '')
+    const [age, setAge] = useState(allData ? allData?.age : '');
+    const [roll, setRollnumber] = useState(allData ? allData?.roll : '');
+    const [phone, setPhone] = useState(allData ? allData?.phone : '');
+    const [address, setAddress] = useState(allData ? allData?.address : '');
     // ---------------Show error--------------------//
     const [showname, setshowName] = useState(false);
     const [showphone, setshowPhone] = useState(false);
@@ -19,18 +27,45 @@ function AddDetails({ navigation }) {
     const [showaddress, setshowAddress] = useState(false);
 
     const dispatch = useDispatch();
-    const data = { addname, age, rollnumber, addphone, address }
+    const data = { name, age, roll, phone, address }
 
-    const Submit = () => {
-        if (addname === '') {
+    const Edit = () => {
+        console.log('Edit is working')
+
+        if (name === '') {
             setshowName(true);
         } else if (age === '') {
             setshowAge(true);
             setshowName(false);
-        } else if (rollnumber === '') {
+        } else if (roll === '') {
             setshowRollnumber(true);
             setshowAge(false);
-        } else if (addphone === '') {
+        } else if (phone === '') {
+            setshowPhone(true);
+            setshowRollnumber(false);
+        } else if (address === '') {
+            setshowAddress(true)
+            setshowPhone(false)
+        }
+        else {
+            // console.log(data)
+
+            setshowAddress(false);
+            dispatch(editDetails({ name, age, roll, phone, address, allIndex, editById }))
+            navigation.navigate('Home')
+
+        }
+    }
+    const Submit = () => {
+        if (name === '') {
+            setshowName(true);
+        } else if (age === '') {
+            setshowAge(true);
+            setshowName(false);
+        } else if (roll === '') {
+            setshowRollnumber(true);
+            setshowAge(false);
+        } else if (phone === '') {
             setshowPhone(true);
             setshowRollnumber(false);
         } else if (address === '') {
@@ -50,7 +85,9 @@ function AddDetails({ navigation }) {
         <View style={styles.logincontainer}>
             <View>
                 <TextInput placeholder='Name'
-                    value={addname}
+                    value={name}
+                    returnKeyType={'done'}
+                    autoFocus={true}
                     keyboardType='email-address'
                     onChangeText={event => setName(event)}
                     style={styles.input} />
@@ -59,23 +96,24 @@ function AddDetails({ navigation }) {
             <View>
                 <TextInput placeholder='Age'
                     value={age}
-                    keyboardType='email-address'
+                    keyboardType='numeric'
                     onChangeText={event => setAge(event)}
                     style={styles.input} />
             </View>
             {showage ? (<Text style={styles.error}> Enter Your Age</Text>) : null}
             <View>
                 <TextInput placeholder='Roll No'
-                    value={rollnumber}
-                    keyboardType='email-address'
+                    value={roll}
+                    keyboardType='numeric'
+                    returnKeyType={'done'}
                     onChangeText={event => setRollnumber(event)}
                     style={styles.input} />
             </View>
             {showrollnumber ? (<Text style={styles.error}> Enter Your Roll No</Text>) : null}
             <View>
                 <TextInput placeholder='Phone No'
-                    value={addphone}
-                    keyboardType='email-address'
+                    value={phone}
+                    keyboardType='numeric'
                     onChangeText={event => setPhone(event)}
                     style={styles.input} />
             </View>
@@ -89,7 +127,7 @@ function AddDetails({ navigation }) {
             </View>
             {showaddress ? (<Text style={styles.error}> Enter Your Address</Text>) : null}
             <View style={styles.buttonView}>
-                <Button title='Submit' color='#f2570f' onPress={Submit} ></Button>
+                <Button title={(allData) ? 'Edit' : 'Submit'} color='#f2570f' onPress={(allData) ? () => Edit() : () => Submit()} ></Button>
             </View>
         </View >
 

@@ -6,6 +6,20 @@ export const AddSubmit = (data) => {
         payload: {
             id: Math.floor(Math.random() * 100),
             data: data,
-        }
+        },
+    };
+
+}
+export const deleteDetails = (id) => {
+    return {
+        type: 'DELETE_DATA',
+        id
+
+    };
+};
+export const editDetails = (data) => {
+    return {
+        type: 'EDIT_DATA',
+        payload: data
     }
 }
