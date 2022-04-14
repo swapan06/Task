@@ -4,6 +4,7 @@ import styles from '../style/style'
 import { images } from '../assets/images/images'
 import { useDispatch } from 'react-redux';
 import { AddSubmit, editDetails } from '../redux/actions/addDetails';
+import { getItem, setItem } from '../utils/utils';
 
 function AddDetails({ navigation, route }) {
 
@@ -11,8 +12,7 @@ function AddDetails({ navigation, route }) {
     const allData = route?.params?.Data;
     const allIndex = route?.params?.Index;
     const editById = allData?.id;
-    console.log("data fater navigating on add details", allData, allIndex, editById);
-
+    // console.log("data fater navigating on add details", allData, allIndex, editById);
 
     const [name, setName] = useState(allData ? allData?.name : '')
     const [age, setAge] = useState(allData ? allData?.age : '');
@@ -27,7 +27,9 @@ function AddDetails({ navigation, route }) {
     const [showaddress, setshowAddress] = useState(false);
 
     const dispatch = useDispatch();
-    const data = { name, age, roll, phone, address }
+
+    const id = Math.floor(Math.random() * 100);
+    const data = [{ id, name, age, roll, phone, address }]
 
     const Edit = () => {
         console.log('Edit is working')
@@ -51,12 +53,13 @@ function AddDetails({ navigation, route }) {
             // console.log(data)
 
             setshowAddress(false);
-            dispatch(editDetails({ name, age, roll, phone, address, allIndex, editById }))
+            dispatch(editDetails[({ name, age, roll, phone, address, allIndex, editById })])
             navigation.navigate('Home')
 
         }
     }
     const Submit = () => {
+
         if (name === '') {
             setshowName(true);
         } else if (age === '') {
@@ -74,7 +77,7 @@ function AddDetails({ navigation, route }) {
         }
         else {
             // console.log(data)
-
+            setItem(data);
             setshowAddress(false);
             dispatch(AddSubmit(data))
             navigation.navigate('Home')

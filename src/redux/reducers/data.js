@@ -1,3 +1,4 @@
+import { getItem, setItem } from "../../utils/utils";
 import type from "../type";
 
 const initiallistState = {
@@ -6,23 +7,22 @@ const initiallistState = {
 const datainput = (state = initiallistState, action) => {
     switch (action.type) {
         case type.ADD_DETAILS: {
-            const { id, data } = action.payload;
+            const data = action.payload
+            console.log("dataaaaaa", data);
+
+            let mergeData = [
+                ...state.list,
+                ...data
+            ]
+            setItem(mergeData).then((val) => {
+                console.log("data is store", val)
+            })
             return {
                 ...state,
-                list: [
-                    ...state.list,
-                    {
-                        id: id,
-                        name: data.name,
-                        phone: data.phone,
-                        age: data.age,
-                        roll: data.roll,
-                        address: data.address,
-
-                    },
-                ],
+                list: mergeData,
             }
         }
+
 
         case 'DELETE_DATA': {
             const newlist = state.list.filter((elem) => elem.id !== action.id)

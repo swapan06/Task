@@ -7,12 +7,14 @@ import { deleteDetails } from '../redux/actions/addDetails'
 import { editDetails } from '../redux/actions/addDetails'
 import { useDispatch, useSelector } from 'react-redux'
 import datainput from '../redux/reducers/data'
+import { setItem } from '../utils/utils'
 
 function Home({ navigation }) {
     console.log(datainput)
     const dispatch = useDispatch();
     const list = useSelector((state) => state.datainput.list)
     console.log(list)
+    setItem(list);
 
 
     function passEditDetails(data, index) {
@@ -24,17 +26,15 @@ function Home({ navigation }) {
         <>
             <ScrollView>
                 {
-
                     list.map((elem, index) => {
-
                         // ---------------list--------------//
                         return (
                             <View style={styles.mapview} key={elem.id}>
                                 <View style={{ flex: 10, marginLeft: 10 }} >
                                     <Text style={styles.textdata}>Name : {elem.name}</Text>
-                                    <Text style={styles.textdata}>Phone : {elem.phone}</Text>
                                     <Text style={styles.textdata}>Age : {elem.age}</Text>
                                     <Text style={styles.textdata}>Rollnumber : {elem.roll}</Text>
+                                    <Text style={styles.textdata}>Phone : {elem.phone}</Text>
                                     <Text style={styles.textdata}>Address : {elem.address}</Text>
                                 </View>
                                 <View>

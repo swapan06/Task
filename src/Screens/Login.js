@@ -6,7 +6,7 @@ import Home from '../Screens/Home'
 import { images } from '../assets/images/images'
 import { useDispatch } from 'react-redux'
 import { Submit } from '../redux/actions/auth'
-import InputTextComponent from '../components/InputTextComponent'
+
 
 
 function Login(navigation) {
@@ -35,9 +35,8 @@ function Login(navigation) {
             </View>
             <View>
                 <Text style={styles.usertext}>Username</Text>
-                <InputTextComponent
+                <TextInput
                     placeholder='Enter Username'
-                    placeholderTextColor={"black"}
                     keyboardType='email-address'
                     style={styles.input}
                 />
@@ -45,10 +44,9 @@ function Login(navigation) {
             {showname ? (<Text style={styles.error}> Enter Your Name</Text>) : null}
             <View>
                 <Text style={styles.usertext}>Password</Text>
-                <InputTextComponent
+                <TextInput
                     placeholder='Enter Password'
-                    placeholderTextColor={"black"}
-                    keyboardType='password'
+                    keyboardType='email-address'
                     style={styles.input}
                 />
             </View>
