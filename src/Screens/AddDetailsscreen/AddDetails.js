@@ -31,7 +31,7 @@ function AddDetails({ navigation, route }) {
 
     const id = Math.floor(Math.random() * 100);
     const data = [{ id, name, age, roll, phone, address }]
-
+    // -------eDIT BUTTON-----------
     const Edit = () => {
         console.log('Edit is working')
 
@@ -53,11 +53,12 @@ function AddDetails({ navigation, route }) {
         else {
             // console.log(data)
             setshowAddress(false);
-            dispatch(editDetails([{ ...data, id: editById }]))
+            dispatch(editDetails({ id: editById, name, age, roll, phone, address }))
             navigation.navigate('Home')
 
         }
     }
+    // -------------submitt BUTTON----
     const Submit = () => {
 
         if (name === '') {

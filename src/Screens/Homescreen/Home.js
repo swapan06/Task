@@ -42,7 +42,7 @@ function Home({ navigation }) {
                                         <TouchableOpacity onPress={() => dispatch(deleteDetails(elem.id))}>
                                             <Image source={images?.trash} style={{ height: 25, width: 25, marginVertical: 8 }} />
                                         </TouchableOpacity>
-                                        <TouchableOpacity onPress={() => passEditDetails(elem, index)} >
+                                        <TouchableOpacity onPress={() => passEditDetails(elem)} >
                                             <Image source={images?.update} style={{ height: 25, width: 25, marginVertical: 8 }} />
                                         </TouchableOpacity>
                                     </View>

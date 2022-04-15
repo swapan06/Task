@@ -34,21 +34,32 @@ const datainput = (state = initiallistState, action) => {
 
         case 'EDIT_DATA': {
             // console.log("update data", action.payload)
-            const data = action.payload;
-            newArr = [...state.list]
-            let updatedArray = state.list.findIndex((val) => { val.id === data.id })
+            let data = action.payload;
+
+            const newArr = [...state.list]
+            let userID = action.payload.id;
+            console.log("userID", userID)
+
+            console.log("newArr", newArr)
+            let updatedArray = state.list.findIndex((val) => val.id === userID);
+
+            console.log("data", data)
             newArr[updatedArray] = data
+            console.log("update id=====", updatedArray)
+            setItem(newArr).then((val) => {
+                console.log("my store data", val)
+            })
             return {
                 ...state.list,
                 list: newArr
             }
 
 
-            console.log("update array", updateArry)
-            return {
-                ...state,
-                list: updateArry
-            }
+            // console.log("update array", updateArry)
+            // return {
+            //     ...state,
+            //     list: updateArry
+
         }
 
         default: return state
