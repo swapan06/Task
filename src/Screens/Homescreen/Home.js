@@ -10,6 +10,7 @@ import datainput from '../../redux/reducers/data'
 import { setItem } from '../../utils/utils'
 import style from '../AddDetailsscreen/style'
 import Login from '../Loginscreen/Login'
+import actions from '../../redux/actions'
 
 function Home({ navigation }) {
     console.log(datainput)
@@ -23,10 +24,12 @@ function Home({ navigation }) {
         console.log(data);
         navigation.navigate('Add Details', { Data: data, Index: index })
     }
-
+    const logout = () => {
+        actions.logout()
+    }
     return (
         <>
-            <TouchableOpacity onPress={() => navigation.navigate(Login)}>
+            <TouchableOpacity onPress={logout}>
                 <View style={{ marginVertical: 6, marginHorizontal: 10, flexDirection: 'row' }}>
                     <Image source={images?.logout} style={{ height: 30, width: 30, }}></Image>
                     <Text style={{ marginLeft: 5, fontSize: 20, fontWeight: 'bold', color: 'black', fontStyle: 'italic' }}>LOGOUT</Text>

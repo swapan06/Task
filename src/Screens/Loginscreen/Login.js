@@ -7,6 +7,7 @@ import Home from '../Homescreen/Home'
 import { images } from '../../assets/images/images'
 import { useDispatch } from 'react-redux'
 import { Submit } from '../../redux/actions/auth'
+import actions from '../../redux/actions'
 
 
 
@@ -29,7 +30,7 @@ function Login(navigation) {
         else {
             setshowPassword(false);
             console.log('mylogin----', data)
-            Submit(data)
+            actions.Submit(data)
         }
     }
     return (

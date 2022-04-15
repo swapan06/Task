@@ -52,7 +52,7 @@ export const LogoutData = async () => {
     try {
         await AsyncStorage.removeItem('LoginData')
     } catch (error) {
-
+        console.log(error)
     }
 }
 
