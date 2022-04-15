@@ -17,7 +17,7 @@ function Home({ navigation }) {
     const dispatch = useDispatch();
     const list = useSelector((state) => state.datainput.list)
     console.log(list)
-    setItem(list);
+    // setItem(list);
 
 
     function passEditDetails(data, index) {

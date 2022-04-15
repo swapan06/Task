@@ -15,6 +15,7 @@ const userStatus = (state = initialstate, action) => {
 
             LogoutData();
             getLogin().then((res) => {
+                setItem(data)
                 return {
                     ...state.userData,
                     userData: res

@@ -52,6 +52,7 @@ function AddDetails({ navigation, route }) {
         }
         else {
             // console.log(data)
+            setItem(data);
             setshowAddress(false);
             dispatch(editDetails({ id: editById, name, age, roll, phone, address }))
             navigation.navigate('Home')
