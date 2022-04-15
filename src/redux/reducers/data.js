@@ -33,17 +33,18 @@ const datainput = (state = initiallistState, action) => {
         }
 
         case 'EDIT_DATA': {
-            console.log("update data", action.payload)
+            // console.log("update data", action.payload)
             const data = action.payload;
-            let updateArry = state.list.map((val, i) => {
-                if (val?.id == data?.editById) {
-                    return data
-                }
-                return val
-            })
+            newArr = [...state.list]
+            let updatedArray = state.list.findIndex((val) => { val.id === data.id })
+            newArr[updatedArray] = data
+            return {
+                ...state.list,
+                list: newArr
+            }
+
 
             console.log("update array", updateArry)
-
             return {
                 ...state,
                 list: updateArry

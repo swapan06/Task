@@ -13,13 +13,10 @@ import { Submit } from '../../redux/actions/auth'
 function Login(navigation) {
     const [addname, setName] = useState('');
     const [password, setPassword] = useState('');
-    // -------show erroe----------
+    // -------show error----------
     const [showname, setshowName] = useState(false);
     const [showpassword, setshowPassword] = useState(false);
     const dispatch = useDispatch()
-
-    const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
-
 
     const handleSubmit = () => {
 
@@ -43,8 +40,6 @@ function Login(navigation) {
                 <TextInput
                     placeholder='Enter Username'
                     keyboardType='email-address'
-                    value={addname}
-                    onChangeText={event => setshowName(event)}
                     style={styles.input}
                 />
             </View>

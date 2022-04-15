@@ -35,7 +35,6 @@ function AddDetails({ navigation, route }) {
     const Edit = () => {
         console.log('Edit is working')
 
-
         if (name === '') {
             setshowName(true);
         } else if (age.length !== 2) {
@@ -53,9 +52,8 @@ function AddDetails({ navigation, route }) {
         }
         else {
             // console.log(data)
-
             setshowAddress(false);
-            dispatch(editDetails[({ name, age, roll, phone, address, allIndex, editById })])
+            dispatch(editDetails([{ ...data, id: editById }]))
             navigation.navigate('Home')
 
         }
