@@ -7,7 +7,7 @@ const style = StyleSheet.create({
         fontSize: 36,
         fontWeight: 'bold',
         color: 'black',
-        marginVertical: 70
+        marginVertical: 50
     },
     usertext: {
         fontSize: 18,

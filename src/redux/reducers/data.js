@@ -33,7 +33,6 @@ const datainput = (state = initiallistState, action) => {
         }
 
         case 'EDIT_DATA': {
-            // console.log("update data", action.payload)
             let data = action.payload;
 
             const newArr = [...state.list]
@@ -53,12 +52,6 @@ const datainput = (state = initiallistState, action) => {
                 ...state.list,
                 list: newArr
             }
-
-
-            // console.log("update array", updateArry)
-            // return {
-            //     ...state,
-            //     list: updateArry
 
         }
 

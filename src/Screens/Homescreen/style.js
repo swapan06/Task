@@ -2,7 +2,6 @@ import { StyleSheet, Dimensions } from 'react-native'
 const { width, height } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
-
     btncontainer: {
         marginBottom: 10,
         marginRight: 10,
@@ -22,6 +21,7 @@ const styles = StyleSheet.create({
         color: 'black',
         marginVertical: 2
     },
+
 
 })
 export default styles

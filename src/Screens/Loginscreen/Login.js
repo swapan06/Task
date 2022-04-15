@@ -11,16 +11,16 @@ import { Submit } from '../../redux/actions/auth'
 
 
 function Login(navigation) {
-    const [addname, setName] = useState('');
+    const [name, setName] = useState('');
     const [password, setPassword] = useState('');
     // -------show error----------
     const [showname, setshowName] = useState(false);
     const [showpassword, setshowPassword] = useState(false);
     const dispatch = useDispatch()
+    const data = { name, password }
+    const Logindata = () => {
 
-    const handleSubmit = () => {
-
-        if (emailRegex.test(addname)) {
+        if (name === '') {
             setshowName(true);
         } else if (password === '') {
             setshowPassword(true);
@@ -28,6 +28,8 @@ function Login(navigation) {
         }
         else {
             setshowPassword(false);
+            console.log('mylogin----', data)
+            Submit(data)
         }
     }
     return (
@@ -41,6 +43,7 @@ function Login(navigation) {
                     placeholder='Enter Username'
                     keyboardType='email-address'
                     style={styles.input}
+                    onChangeText={(event) => setName(event)}
                 />
             </View>
             {showname ? (<Text style={styles.error}> Enter Your Name</Text>) : null}
@@ -50,11 +53,12 @@ function Login(navigation) {
                     placeholder='Enter Password'
                     keyboardType='email-address'
                     style={styles.input}
+                    onChangeText={(event) => setPassword(event)}
                 />
             </View>
             {showname ? (<Text style={styles.error}> Enter Your Password</Text>) : null}
             <View style={styles.buttonView}>
-                <Button title='Submit' color='#f2570f' onPress={() => dispatch(Submit())} ></Button>
+                <Button title='Submit' color='#f2570f' onPress={Logindata} ></Button>
             </View>
         </View>
     )
