@@ -34,7 +34,7 @@ const datainput = (state = initiallistState, action) => {
 
         case 'EDIT_DATA': {
             console.log("update data", action.payload)
-            let data = action.payload;
+            const data = action.payload;
             let updateArry = state.list.map((val, i) => {
                 if (val?.id == data?.editById) {
                     return data

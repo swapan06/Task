@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import { View, Text, TextInput, Image, Button } from 'react-native'
-import styles from '../style/style'
-import { images } from '../assets/images/images'
+import style from '../AddDetailsscreen/style'
+import styles from '../../style/style'
+import { images } from '../../assets/images/images'
 import { useDispatch } from 'react-redux';
-import { AddSubmit, editDetails } from '../redux/actions/addDetails';
-import { getItem, setItem } from '../utils/utils';
+import { AddSubmit, editDetails } from '../../redux/actions/addDetails';
+import { getItem, setItem } from '../../utils/utils';
 
 function AddDetails({ navigation, route }) {
 
@@ -34,15 +35,16 @@ function AddDetails({ navigation, route }) {
     const Edit = () => {
         console.log('Edit is working')
 
+
         if (name === '') {
             setshowName(true);
-        } else if (age === '') {
+        } else if (age.length !== 2) {
             setshowAge(true);
             setshowName(false);
         } else if (roll === '') {
             setshowRollnumber(true);
             setshowAge(false);
-        } else if (phone === '') {
+        } else if (phone.length !== 10) {
             setshowPhone(true);
             setshowRollnumber(false);
         } else if (address === '') {
@@ -62,13 +64,13 @@ function AddDetails({ navigation, route }) {
 
         if (name === '') {
             setshowName(true);
-        } else if (age === '') {
+        } else if (age.length !== 2) {
             setshowAge(true);
             setshowName(false);
-        } else if (roll === '') {
+        } else if (roll.length !== 4) {
             setshowRollnumber(true);
             setshowAge(false);
-        } else if (phone === '') {
+        } else if (phone.length !== 10) {
             setshowPhone(true);
             setshowRollnumber(false);
         } else if (address === '') {
@@ -120,7 +122,7 @@ function AddDetails({ navigation, route }) {
                     onChangeText={event => setPhone(event)}
                     style={styles.input} />
             </View>
-            {showphone ? (<Text style={styles.error}>Enter Your Phone No</Text>) : null}
+            {showphone ? (<Text style={styles.error}>Enter Valid Phone No</Text>) : null}
             <View>
                 <TextInput placeholder='Address'
                     value={address}

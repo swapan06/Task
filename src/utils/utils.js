@@ -4,13 +4,14 @@ export const setItem = async (data) => {
     try {
         let jsonValue = JSON.stringify(data)
         await AsyncStorage.setItem('list', jsonValue)
-        console.log("getdata", jsonValue)
+        // console.log("getdata", jsonValue)
         return { jsonValue };
 
     } catch (error) {
         return false;
     }
 }
+
 
 export const getItem = async () => {
     try {

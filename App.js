@@ -16,8 +16,6 @@ import { getItem } from './src/utils/utils';
 import type from './src/redux/type';
 
 
-
-
 const { dispatch } = store;
 
 const App = () => {

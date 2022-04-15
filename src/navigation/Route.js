@@ -1,7 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import React from 'react'
-import Home from '../Screens/Home';
+import Home from '../Screens/Homescreen/Home';
 import { useSelector } from 'react-redux';
 import AuthStack from './AuthStack';
 import MainStack from './MainStack';

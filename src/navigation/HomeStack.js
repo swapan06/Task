@@ -1,8 +1,8 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import Home from '../Screens/Home'
-import Login from '../Screens/Login';
-import AddDetails from '../Screens/AddDetails';
+import Home from '../Screens/Homescreen/Home'
+import Login from '../Screens/Loginscreen/Login';
+import AddDetails from '../Screens/AddDetailsscreen/AddDetails';
 const Stack = createStackNavigator();
 function HomeStack() {
     return (

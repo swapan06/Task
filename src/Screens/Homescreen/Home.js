@@ -1,13 +1,13 @@
 import React from 'react'
 import { View, Text, Image, TouchableOpacity, ScrollView } from 'react-native'
-import styles from '../style/style'
-import { images } from '../assets/images/images'
-import { AddDetails } from '../Screens/AddDetails'
-import { deleteDetails } from '../redux/actions/addDetails'
-import { editDetails } from '../redux/actions/addDetails'
+import styles from '../Homescreen/style'
+import { images } from '../../assets/images/images'
+import { AddDetails } from '../AddDetailsscreen/AddDetails'
+import { deleteDetails } from '../../redux/actions/addDetails'
+import { editDetails } from '../../redux/actions/addDetails'
 import { useDispatch, useSelector } from 'react-redux'
-import datainput from '../redux/reducers/data'
-import { setItem } from '../utils/utils'
+import datainput from '../../redux/reducers/data'
+import { setItem } from '../../utils/utils'
 
 function Home({ navigation }) {
     console.log(datainput)
@@ -55,7 +55,7 @@ function Home({ navigation }) {
             {/* -------------------Home View--------------------- */}
             <View style={{ position: 'absolute', bottom: 0, right: 0 }}>
                 <TouchableOpacity style={styles.btncontainer} onPress={() => navigation.navigate('Add Details')} >
-                    <Image source={images?.addbutton} style={styles.buttonadd} ></Image>
+                    <Image source={images?.addbutton}  ></Image>
                 </TouchableOpacity>
             </View>
         </>
