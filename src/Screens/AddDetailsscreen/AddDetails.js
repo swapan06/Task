@@ -56,7 +56,7 @@ function AddDetails({ navigation, route }) {
             setItem(data);
             setshowAddress(false);
             dispatch(editDetails({ id: editById, name, age, roll, phone, address }))
-            navigation.navigate('Home')
+            navigation.navigate('home')
 
         }
     }

@@ -27,11 +27,7 @@ const styles = StyleSheet.create({
         fontSize: 12,
         color: 'red',
         textAlign: 'left',
-        fontFamily: fontFamily.MulishRegular,
+        fontFamily: fontFamily.mulishBold,
     },
-
-
-
-
 })
 export default styles
