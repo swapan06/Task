@@ -7,7 +7,8 @@ const style = StyleSheet.create({
         fontSize: 36,
         fontWeight: 'bold',
         color: 'black',
-        marginVertical: 50
+        marginVertical: 50,
+        textTransform: 'uppercase',
     },
     usertext: {
         fontSize: 18,

@@ -15,12 +15,18 @@ import store from './src/redux/store';
 import { getItem, getLogin } from './src/utils/utils';
 import type from './src/redux/type';
 import actions from './src/redux/actions'
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import strings from './src/constants/lang';
+
+
 
 const { dispatch } = store;
 
 const App = () => {
 
   useEffect(() => {
+
+    getLng()
     getLogin().then((res) => {
       console.log("store data", res)
       actions.Submit(res)
@@ -35,7 +41,25 @@ const App = () => {
         })
       }
     })
+
+
   }, [])
+
+  const getLng = async () => {
+    try {
+      const lng = await AsyncStorage.getItem('language')
+      console.log("Lng++++", lng)
+      if (!!lng) {
+        strings.setLanguage(lng)
+      } else {
+        strings.setLanguage('en')
+      }
+    } catch (error) {
+      console.log("error raised ")
+    }
+  }
+
+
   return (
 
     <Provider store={store}>

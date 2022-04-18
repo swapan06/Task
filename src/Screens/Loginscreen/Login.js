@@ -1,13 +1,11 @@
 import React, { useState } from 'react'
-import { View, Text, TextInput, Button, Image } from 'react-native'
-import HomeStack from '../../navigation/HomeStack'
+import { Button, Text, TextInput, View } from 'react-native'
+import RNRestart from 'react-native-restart'
+import { useDispatch } from 'react-redux'
+import strings, { changeLaguage } from '../../constants/lang'
+import actions from '../../redux/actions'
 import styles from '../../style/style'
 import style from '../Loginscreen/style'
-import Home from '../Homescreen/Home'
-import { images } from '../../assets/images/images'
-import { useDispatch } from 'react-redux'
-import { Submit } from '../../redux/actions/auth'
-import actions from '../../redux/actions'
 
 
 
@@ -33,13 +31,18 @@ function Login(navigation) {
             actions.Submit(data)
         }
     }
+
+    const onChangeLng = (key) => {
+        changeLaguage(key)
+        RNRestart.Restart()
+    }
     return (
         <View style={styles.logincontainer}>
             <View >
-                <Text style={style.logintext}>LOGIN</Text>
+                <Text style={style.logintext}>{strings.LOGIN}</Text>
             </View>
             <View>
-                <Text style={style.usertext}>Username</Text>
+                <Text style={style.usertext}>{strings.USERNAME}</Text>
                 <TextInput
                     placeholder='Enter Username'
                     keyboardType='email-address'
@@ -47,9 +50,9 @@ function Login(navigation) {
                     onChangeText={(event) => setName(event)}
                 />
             </View>
-            {showname ? (<Text style={styles.error}> Enter Your Name</Text>) : null}
+            {showname ? (<Text style={styles.error}> {strings.ENTER_YOUR_NAME}</Text>) : null}
             <View>
-                <Text style={style.usertext}>Password</Text>
+                <Text style={style.usertext}>{strings.PASSWORD}</Text>
                 <TextInput
                     placeholder='Enter Password'
                     keyboardType='email-address'
@@ -57,9 +60,17 @@ function Login(navigation) {
                     onChangeText={(event) => setPassword(event)}
                 />
             </View>
-            {showname ? (<Text style={styles.error}> Enter Your Password</Text>) : null}
+            {showname ? (<Text style={styles.error}> {strings.ENTER_YOUR_PASSWORD}</Text>) : null}
             <View style={styles.buttonView}>
-                <Button title='Submit' color='#f2570f' onPress={Logindata} ></Button>
+                <Button title={strings.SUBMIT} color='#f2570f' onPress={Logindata} ></Button>
+
+                <View style={{ marginVertical: 12 }} />
+
+                <Button title='Change Language(FR)' color='black' onPress={() => onChangeLng('fr')} ></Button>
+                <View style={{ marginVertical: 12 }} />
+
+                <Button title='Change Language(EN)' color='black' onPress={() => onChangeLng('en')} ></Button>
+
             </View>
         </View>
     )
