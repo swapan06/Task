@@ -2,10 +2,11 @@ import React, { useState } from 'react'
 import { View, Text, TextInput, Image, Button } from 'react-native'
 import style from '../AddDetailsscreen/style'
 import styles from '../../style/style'
-import { images } from '../../assets/images/images'
+import { images } from '../../constants/images'
 import { useDispatch } from 'react-redux';
 import { AddSubmit, editDetails } from '../../redux/actions/addDetails';
 import { getItem, setItem } from '../../utils/utils';
+import strings from '../../constants/lang'
 
 function AddDetails({ navigation, route }) {
 
@@ -89,7 +90,7 @@ function AddDetails({ navigation, route }) {
     return (
         <View style={styles.logincontainer}>
             <View>
-                <TextInput placeholder='Name'
+                <TextInput placeholder={strings.NAME}
                     value={name}
                     returnKeyType={'done'}
                     autoFocus={true}
@@ -97,40 +98,40 @@ function AddDetails({ navigation, route }) {
                     onChangeText={event => setName(event)}
                     style={styles.input} />
             </View>
-            {showname ? (<Text style={styles.error}> Enter Your Name</Text>) : null}
+            {showname ? (<Text style={styles.error}>{strings.ENTER_YOUR_NAME}</Text>) : null}
             <View>
-                <TextInput placeholder='Age'
+                <TextInput placeholder={strings.AGE}
                     value={age}
                     keyboardType='numeric'
                     onChangeText={event => setAge(event)}
                     style={styles.input} />
             </View>
-            {showage ? (<Text style={styles.error}> Enter Your Age</Text>) : null}
+            {showage ? (<Text style={styles.error}>{strings.ENTER_YOUR_AGE}</Text>) : null}
             <View>
-                <TextInput placeholder='Roll No'
+                <TextInput placeholder={strings.ROLL_NO}
                     value={roll}
                     keyboardType='numeric'
                     returnKeyType={'done'}
                     onChangeText={event => setRollnumber(event)}
                     style={styles.input} />
             </View>
-            {showrollnumber ? (<Text style={styles.error}> Enter Your Roll No</Text>) : null}
+            {showrollnumber ? (<Text style={styles.error}>{strings.ENTER_YOUR_ROLLNO}</Text>) : null}
             <View>
-                <TextInput placeholder='Phone No'
+                <TextInput placeholder={strings.PHONE_NO}
                     value={phone}
                     keyboardType='numeric'
                     onChangeText={event => setPhone(event)}
                     style={styles.input} />
             </View>
-            {showphone ? (<Text style={styles.error}>Enter Valid Phone No</Text>) : null}
+            {showphone ? (<Text style={styles.error}>{strings.ENTER_YOUR_PHONENO}</Text>) : null}
             <View>
-                <TextInput placeholder='Address'
+                <TextInput placeholder={strings.ADDRESS}
                     value={address}
                     keyboardType='email-address'
                     onChangeText={event => setAddress(event)}
                     style={styles.input} />
             </View>
-            {showaddress ? (<Text style={styles.error}> Enter Your Address</Text>) : null}
+            {showaddress ? (<Text style={styles.error}>{strings.ENTER_YOUR_ADDRESS}</Text>) : null}
             <View style={styles.buttonView}>
                 <Button title={(allData) ? 'Edit' : 'Submit'} color='#f2570f' onPress={(allData) ? () => Edit() : () => Submit()} ></Button>
             </View>

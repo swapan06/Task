@@ -1,5 +1,6 @@
 import { StyleSheet, Dimensions } from 'react-native'
 const { width, height } = Dimensions.get('window');
+import fontFamily from '../../style/fontFamily';
 
 const style = StyleSheet.create({
 
@@ -12,9 +13,10 @@ const style = StyleSheet.create({
     },
     usertext: {
         fontSize: 18,
-        fontWeight: 'bold',
         color: '#f5821d',
-        marginTop: 10
+        marginTop: 10,
+        fontFamily: fontFamily.mulishBold
+
     },
 
 

@@ -1,4 +1,6 @@
 import { StyleSheet, Dimensions } from 'react-native'
+import fontFamily from './fontFamily';
+
 const { width, height } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
@@ -25,7 +27,7 @@ const styles = StyleSheet.create({
         fontSize: 12,
         color: 'red',
         textAlign: 'left',
-
+        fontFamily: fontFamily.MulishRegular,
     },
 
 

@@ -1,16 +1,12 @@
 import React from 'react'
-import { View, Text, Image, TouchableOpacity, ScrollView } from 'react-native'
-import styles from '../Homescreen/style'
-import { images } from '../../assets/images/images'
-import { AddDetails } from '../AddDetailsscreen/AddDetails'
-import { deleteDetails } from '../../redux/actions/addDetails'
-import { editDetails } from '../../redux/actions/addDetails'
+import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
-import datainput from '../../redux/reducers/data'
-import { setItem } from '../../utils/utils'
-import style from '../AddDetailsscreen/style'
-import Login from '../Loginscreen/Login'
+import { images } from '../../constants/images'
+import strings from '../../constants/lang'
 import actions from '../../redux/actions'
+import { deleteDetails } from '../../redux/actions/addDetails'
+import datainput from '../../redux/reducers/data'
+import styles from '../Homescreen/style'
 
 function Home({ navigation }) {
     console.log(datainput)
@@ -21,6 +17,7 @@ function Home({ navigation }) {
 
 
     function passEditDetails(data, index) {
+
         console.log(data);
         navigation.navigate('Add Details', { Data: data, Index: index })
     }
@@ -32,7 +29,7 @@ function Home({ navigation }) {
             <TouchableOpacity onPress={logout}>
                 <View style={{ marginVertical: 6, marginHorizontal: 10, flexDirection: 'row' }}>
                     <Image source={images?.logout} style={{ height: 30, width: 30, }}></Image>
-                    <Text style={{ marginLeft: 5, fontSize: 20, fontWeight: 'bold', color: 'black', fontStyle: 'italic' }}>LOGOUT</Text>
+                    <Text style={{ marginLeft: 5, fontSize: 20, fontWeight: 'bold', color: 'black', fontStyle: 'italic' }}>{strings.LOGOUT}</Text>
                 </View>
             </TouchableOpacity>
 
@@ -43,11 +40,11 @@ function Home({ navigation }) {
                         return (
                             <View style={styles.mapview} key={elem.id}>
                                 <View style={{ flex: 10, marginLeft: 10 }} >
-                                    <Text style={styles.textdata}>Name : {elem.name}</Text>
-                                    <Text style={styles.textdata}>Age : {elem.age}</Text>
-                                    <Text style={styles.textdata}>Rollnumber : {elem.roll}</Text>
-                                    <Text style={styles.textdata}>Phone : {elem.phone}</Text>
-                                    <Text style={styles.textdata}>Address : {elem.address}</Text>
+                                    <Text style={styles.textdata}>{strings.NAME} : {elem.name}</Text>
+                                    <Text style={styles.textdata}>{strings.AGE} : {elem.age}</Text>
+                                    <Text style={styles.textdata}>{strings.ROLL_NO} : {elem.roll}</Text>
+                                    <Text style={styles.textdata}>{strings.PHONE_NO} : {elem.phone}</Text>
+                                    <Text style={styles.textdata}>{strings.ADDRESS} : {elem.address}</Text>
                                 </View>
                                 <View>
                                     <View style={{ flex: 0.1, flexDirection: "column", alignItems: "center", justifyContent: "space-between", paddingVertical: 10 }}>

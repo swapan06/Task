@@ -9,6 +9,7 @@ import style from '../Loginscreen/style'
 
 
 
+
 function Login(navigation) {
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
@@ -36,6 +37,7 @@ function Login(navigation) {
         changeLaguage(key)
         RNRestart.Restart()
     }
+
     return (
         <View style={styles.logincontainer}>
             <View >
@@ -44,7 +46,7 @@ function Login(navigation) {
             <View>
                 <Text style={style.usertext}>{strings.USERNAME}</Text>
                 <TextInput
-                    placeholder='Enter Username'
+                    placeholder={strings.ENTER_USERNAME}
                     keyboardType='email-address'
                     style={styles.input}
                     onChangeText={(event) => setName(event)}
@@ -54,7 +56,7 @@ function Login(navigation) {
             <View>
                 <Text style={style.usertext}>{strings.PASSWORD}</Text>
                 <TextInput
-                    placeholder='Enter Password'
+                    placeholder={strings.ENTER_PASSWORD}
                     keyboardType='email-address'
                     style={styles.input}
                     onChangeText={(event) => setPassword(event)}
@@ -65,6 +67,7 @@ function Login(navigation) {
                 <Button title={strings.SUBMIT} color='#f2570f' onPress={Logindata} ></Button>
 
                 <View style={{ marginVertical: 12 }} />
+
 
                 <Button title='Change Language(FR)' color='black' onPress={() => onChangeLng('fr')} ></Button>
                 <View style={{ marginVertical: 12 }} />
