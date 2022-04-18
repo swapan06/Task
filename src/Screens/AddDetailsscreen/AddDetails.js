@@ -56,7 +56,7 @@ function AddDetails({ navigation, route }) {
             setItem(data);
             setshowAddress(false);
             dispatch(editDetails({ id: editById, name, age, roll, phone, address }))
-            navigation.navigate('home')
+            navigation.navigate('Home')
 
         }
     }
@@ -65,10 +65,10 @@ function AddDetails({ navigation, route }) {
 
         if (name === '') {
             setshowName(true);
-        } else if (age.length !== 2) {
+        } else if (age === '') {
             setshowAge(true);
             setshowName(false);
-        } else if (roll.length !== 4) {
+        } else if (roll === '') {
             setshowRollnumber(true);
             setshowAge(false);
         } else if (phone.length !== 10) {

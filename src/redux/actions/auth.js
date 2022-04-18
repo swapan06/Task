@@ -16,6 +16,5 @@ export const logout = () => {
     dispatch({
         type: type.USERLOGOUT,
 
-
     })
 };
