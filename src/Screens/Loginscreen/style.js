@@ -14,9 +14,27 @@ const style = StyleSheet.create({
     },
     usertext: {
         fontSize: 18,
-        color: colors.yellow,
+        color: colors.statusColor,
         marginTop: 10,
         fontFamily: fontFamily.mulishBold
     },
+    btntext: {
+        color: 'white',
+        textAlign: 'center',
+        fontFamily: fontFamily.mulishBold,
+        fontSize: 18
+    },
+    lngtext: {
+        color: 'black',
+        fontSize: 16,
+        fontFamily: fontFamily.mulishBold,
+        marginVertical: 8
+    },
+    logoimg: {
+        height: width / 8,
+        width: width / 2.7,
+
+    },
+
 })
 export default style

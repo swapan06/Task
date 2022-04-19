@@ -23,7 +23,6 @@ const datainput = (state = initiallistState, action) => {
             }
         }
 
-
         case 'DELETE_DATA': {
             const newlist = state.list.filter((elem) => elem.id !== action.id)
             return {
