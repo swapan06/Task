@@ -53,15 +53,7 @@ export const signIn = async () => {
   }
 };
 
-const logout = async () => {
-  try {
-    await GoogleSignin.signOut();
-    // this.setState({ user: null }); // Remember to remove the user from your app's state as well
-    logout();
-  } catch (error) {
-    console.error(error);
-  }
-};
+
 
 export const onfbLogin = async () => {
   try {

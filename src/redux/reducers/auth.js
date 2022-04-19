@@ -13,15 +13,15 @@ const userStatus = (state = initialstate, action) => {
         }
         case type.USERLOGOUT: {
 
-            LogoutData()
-            getLogin().then((res) => {
-                setItem(data)
-                return {
-                    ...state.userData,
-                    userData: res
-                }
-            })
-            return { ...state.userData, userData: undefined }
+            LogoutData();
+            // getLogin().then((res) => {
+            //     setItem(data)
+            //     return {
+            //         ...state.userData,
+            //         userData: res
+            //     }
+            // })
+            return { userData: undefined }
         }
         default: return state;
     }

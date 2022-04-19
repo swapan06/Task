@@ -1,3 +1,4 @@
+import { GoogleSignin } from '@react-native-google-signin/google-signin'
 import React from 'react'
 import { Image, ScrollView, Text, TouchableOpacity, View, FlatList } from 'react-native'
 
@@ -22,9 +23,18 @@ function Home({ navigation }) {
         console.log(data);
         navigation.navigate('Add Details', { Data: data, Index: index })
     }
-    const logout = () => {
-        actions.logout()
-    }
+    // const logout = () => {
+    //     actions.logout()
+    // }
+    const logout = async () => {
+        try {
+            await GoogleSignin.signOut();
+            // this.setState({ user: null }); // Remember to remove the user from your app's state as well
+            actions.logout()
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
     const renderData = ({ item, index }) => {
         const elem = item
