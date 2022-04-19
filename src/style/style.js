@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     buttonView: {
         margin: 15,
         padding: 15,
-        backgroundColor: colors.statusColor,
+        backgroundColor: '#f5821d',
         height: width / 7,
         borderRadius: 6,
         width: width / 1.1,

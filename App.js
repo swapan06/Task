@@ -19,6 +19,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import strings from './src/constants/lang';
 import { GoogleSignin, statusCodes } from '@react-native-google-signin/google-signin';
 import { LoginManager, GraphRequest, GraphRequestManager } from "react-native-fbsdk";
+import { Submit } from './src/redux/actions/auth';
 
 
 
@@ -28,10 +29,16 @@ export const signIn = async () => {
   try {
     await GoogleSignin.hasPlayServices();
     const userInfo = await GoogleSignin.signIn();
-    console.log("user info", userInfo)
+    // console.log("user info", userInfo)
+    // console.log(error)
+    const email = userInfo.user.email
+    const id = userInfo.user.id
+    const data = { email, id }
+    Submit(data);
   } catch (error) {
     if (error.code === statusCodes.SIGN_IN_CANCELLED) {
-      console.log(error)
+
+      console.log(data, "google data");
       // user cancelled the login flow
     } else if (error.code === statusCodes.IN_PROGRESS) {
       console.log(error)
@@ -43,6 +50,16 @@ export const signIn = async () => {
       console.log(error)
       // some other error happened
     }
+  }
+};
+
+const logout = async () => {
+  try {
+    await GoogleSignin.signOut();
+    // this.setState({ user: null }); // Remember to remove the user from your app's state as well
+    logout();
+  } catch (error) {
+    console.error(error);
   }
 };
 

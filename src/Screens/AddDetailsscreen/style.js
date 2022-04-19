@@ -11,6 +11,12 @@ const style = StyleSheet.create({
         color: '#f5821d',
         marginTop: 5
     },
-
+    buttonView1: {
+        margin: 25,
+        padding: 15,
+        height: width / 5,
+        borderRadius: 6,
+        width: width / 1,
+    },
 })
 export default style

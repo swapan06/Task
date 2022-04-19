@@ -32,7 +32,11 @@ const style = StyleSheet.create({
     },
     logoimg: {
         height: width / 8,
-        width: width / 2.7,
+        width: width / 3.4,
+
+
+
+
 
     },
 

@@ -13,7 +13,7 @@ const userStatus = (state = initialstate, action) => {
         }
         case type.USERLOGOUT: {
 
-            LogoutData();
+            LogoutData()
             getLogin().then((res) => {
                 setItem(data)
                 return {

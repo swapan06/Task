@@ -132,8 +132,8 @@ function AddDetails({ navigation, route }) {
                     style={styles.input} />
             </View>
             {showaddress ? (<Text style={styles.error}>{strings.ENTER_YOUR_ADDRESS}</Text>) : null}
-            <View style={styles.buttonView}>
-                <Button title={(allData) ? 'Edit' : 'Submit'} color='#f2570f' onPress={(allData) ? () => Edit() : () => Submit()} ></Button>
+            <View style={style.buttonView1}>
+                <Button title={(allData) ? 'Edit' : 'Submit'} color='#f5821d' onPress={(allData) ? () => Edit() : () => Submit()} ></Button>
             </View>
         </View >
 

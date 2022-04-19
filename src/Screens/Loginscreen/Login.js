@@ -74,7 +74,7 @@ function Login(navigation) {
                 </View>
             </TouchableOpacity>
             {/* --------------------Image Logo----------------------- */}
-            <View style={{ marginVertical: 8, flexDirection: 'row' }}>
+            <View style={{ marginVertical: 4, flexDirection: 'row' }}>
                 <TouchableOpacity onPress={signIn}>
                     <Image style={style.logoimg} source={images?.google}></Image>
                 </TouchableOpacity>
