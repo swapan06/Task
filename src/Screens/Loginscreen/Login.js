@@ -1,12 +1,16 @@
+import { GoogleSignin } from '@react-native-google-signin/google-signin'
 import React, { useState } from 'react'
 import { Button, Text, TextInput, View, TouchableOpacity, Image } from 'react-native'
 import RNRestart from 'react-native-restart'
 import { useDispatch } from 'react-redux'
+import { onfbLogin, signIn } from '../../../App'
 import { images } from '../../constants/images'
 import strings, { changeLaguage } from '../../constants/lang'
 import actions from '../../redux/actions'
 import styles from '../../style/style'
 import style from '../Loginscreen/style'
+
+
 
 
 
@@ -71,11 +75,11 @@ function Login(navigation) {
             </TouchableOpacity>
             {/* --------------------Image Logo----------------------- */}
             <View style={{ marginVertical: 8, flexDirection: 'row' }}>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={signIn}>
                     <Image style={style.logoimg} source={images?.google}></Image>
                 </TouchableOpacity>
                 <Text style={{ marginVertical: 10, textAlign: 'center', fontSize: 18, }}>or</Text>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={onfbLogin}>
                     <Image style={style.logoimg} source={images?.facebook}></Image>
                 </TouchableOpacity>
             </View>
