@@ -20,6 +20,8 @@ import strings from './src/constants/lang';
 import { GoogleSignin, statusCodes } from '@react-native-google-signin/google-signin';
 import { LoginManager, GraphRequest, GraphRequestManager } from "react-native-fbsdk";
 import { Submit } from './src/redux/actions/auth';
+import { requestUserPermission, notificationListener } from './src/utils/notificationService';
+
 
 
 
@@ -102,6 +104,9 @@ const fblogin = (resCallback) => {
 const App = () => {
 
   useEffect(() => {
+    requestUserPermission()
+    notificationListener()
+
     GoogleSignin.configure()
 
     getLng()
