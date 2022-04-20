@@ -24,20 +24,17 @@ import { Submit } from './src/redux/actions/auth';
 
 
 const { dispatch } = store;
-
+// ----------------Google Signin----------------//
 export const signIn = async () => {
   try {
     await GoogleSignin.hasPlayServices();
     const userInfo = await GoogleSignin.signIn();
-    // console.log("user info", userInfo)
-    // console.log(error)
     const email = userInfo.user.email
     const id = userInfo.user.id
     const data = { email, id }
     Submit(data);
   } catch (error) {
     if (error.code === statusCodes.SIGN_IN_CANCELLED) {
-
       console.log(data, "google data");
       // user cancelled the login flow
     } else if (error.code === statusCodes.IN_PROGRESS) {
@@ -54,7 +51,7 @@ export const signIn = async () => {
 };
 
 
-
+// ---------------Facebook Login-------------------
 export const onfbLogin = async () => {
   try {
     await fblogin(_responseInfoCallBack)
@@ -63,7 +60,7 @@ export const onfbLogin = async () => {
 
   }
 }
-const _responseInfoCallBack = async (error, result) => {
+export const _responseInfoCallBack = async (error, result) => {
   if (error) {
     console.log("error raised", error)
     return;
@@ -71,6 +68,8 @@ const _responseInfoCallBack = async (error, result) => {
   else {
     const userData = result
     console.log("fb data+++++", userData)
+    Submit(userData);
+
   }
 
 }
@@ -80,7 +79,7 @@ const fblogin = (resCallback) => {
   return LoginManager.logInWithPermissions(['email', 'public_profile']).then(
     result => {
       console.log("fb result==>>>>>>", result);
-      if (result.declinedPermission && result.declinedPermission.includes("email")) {
+      if (result.declinedPermissions && result.declinedPermissions.includes("email")) {
         resCallback({ message: " Eamil is required" })
       }
       if (result.isCancelled) {
@@ -99,11 +98,14 @@ const fblogin = (resCallback) => {
     }
   )
 }
+
 const App = () => {
 
   useEffect(() => {
     GoogleSignin.configure()
+
     getLng()
+
     getLogin().then((res) => {
       console.log("store data", res)
       actions.Submit(res)
@@ -121,7 +123,7 @@ const App = () => {
 
 
   }, [])
-
+  // ---------------------Select Language-----------------------//
   const getLng = async () => {
     try {
       const lng = await AsyncStorage.getItem('language')
@@ -135,7 +137,6 @@ const App = () => {
       console.log("error raised ")
     }
   }
-
 
   return (
 
