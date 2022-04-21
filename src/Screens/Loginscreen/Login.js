@@ -78,7 +78,7 @@ function Login(navigation) {
                 <TouchableOpacity onPress={signIn}>
                     <Image style={style.logoimg} source={images?.google}></Image>
                 </TouchableOpacity>
-                <Text style={{ marginVertical: 10, textAlign: 'center', fontSize: 18, }}>or</Text>
+                <Text style={{ marginVertical: 10, textAlign: 'center', fontSize: 18, }}>or </Text>
                 <TouchableOpacity onPress={onfbLogin}>
                     <Image style={style.logoimg} source={images?.facebook}></Image>
                 </TouchableOpacity>

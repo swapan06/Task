@@ -1,6 +1,6 @@
-import messaging from '@react-native-firebase/messaging';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { showError } from 'react-native-flash-message'
+import messaging from '@react-native-firebase/messaging';
+import { showError } from 'react-native-flash-message';
 
 export async function requestUserPermission() {
     const authStatus = await messaging().requestPermission();

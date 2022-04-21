@@ -1,4 +1,6 @@
 import { StyleSheet, Dimensions } from 'react-native'
+import colors from '../../style/colors';
+import fontFamily from '../../style/fontFamily';
 const { width, height } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
@@ -21,6 +23,13 @@ const styles = StyleSheet.create({
         color: 'black',
         marginVertical: 2
     },
+    datatext: {
+        fontFamily: fontFamily.mulishBold,
+        fontSize: 16,
+        color: colors.DarkBlue,
+        marginHorizontal: 10,
+    },
+
 
 
 })

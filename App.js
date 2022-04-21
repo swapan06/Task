@@ -1,28 +1,16 @@
-
-import React, { useEffect } from 'react';
-
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
-import Route from './src/navigation/Route';
-import { Provider, useDispatch } from 'react-redux';
-import store from './src/redux/store';
-import { getItem, getLogin } from './src/utils/utils';
-import type from './src/redux/type';
-import actions from './src/redux/actions'
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import strings from './src/constants/lang';
 import { GoogleSignin, statusCodes } from '@react-native-google-signin/google-signin';
-import { LoginManager, GraphRequest, GraphRequestManager } from "react-native-fbsdk";
+import React, { useEffect } from 'react';
+import { GraphRequest, GraphRequestManager, LoginManager } from "react-native-fbsdk";
+import { Provider } from 'react-redux';
+import strings from './src/constants/lang';
+import Route from './src/navigation/Route';
+import actions from './src/redux/actions';
 import { Submit } from './src/redux/actions/auth';
-import { requestUserPermission, notificationListener } from './src/utils/notificationService';
-
-
+import store from './src/redux/store';
+import type from './src/redux/type';
+import { notificationListener, requestUserPermission } from './src/utils/notificationService';
+import { getItem, getLogin } from './src/utils/utils';
 
 
 const { dispatch } = store;
@@ -31,9 +19,9 @@ export const signIn = async () => {
   try {
     await GoogleSignin.hasPlayServices();
     const userInfo = await GoogleSignin.signIn();
-    const email = userInfo.user.email
-    const id = userInfo.user.id
-    const data = { email, id }
+    const data = userInfo.user
+
+
     Submit(data);
   } catch (error) {
     if (error.code === statusCodes.SIGN_IN_CANCELLED) {
