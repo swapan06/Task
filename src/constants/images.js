@@ -6,4 +6,5 @@ export const images = {
     logout: require('../assets/images/logout.png'),
     google: require('../assets/images/google.jpg'),
     facebook: require('../assets/images/facebook.png'),
+    todo: require('../assets/images/todo.png')
 }

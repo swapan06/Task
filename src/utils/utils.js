@@ -41,7 +41,7 @@ export const getLogin = async () => {
     try {
         const value = await AsyncStorage.getItem('LoginData')
         let jsonValue = JSON.parse(value)
-        console.log(jsonValue, 'get------data')
+        // console.log(jsonValue, 'get------data')
         return jsonValue
     } catch (e) {
         // error reading value

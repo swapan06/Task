@@ -10,10 +10,7 @@ const datainput = (state = initiallistState, action) => {
             const data = action.payload
             console.log("dataaaaaa", data);
 
-            let mergeData = [
-                ...state.list,
-                ...data
-            ]
+            let mergeData = state.list.concat(data)
             setItem(mergeData).then((val) => {
                 console.log("data is store", val)
             })

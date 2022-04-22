@@ -12,8 +12,6 @@ import style from '../Loginscreen/style'
 
 
 
-
-
 function Login(navigation) {
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
@@ -22,6 +20,7 @@ function Login(navigation) {
     const [showpassword, setshowPassword] = useState(false);
     const dispatch = useDispatch()
     const data = { name, password }
+
     const Logindata = () => {
 
         if (name === '') {
@@ -45,7 +44,8 @@ function Login(navigation) {
     return (
         <View style={styles.logincontainer}>
             <View >
-                <Text style={style.logintext}>{strings.LOGIN}</Text>
+                <Image source={images?.todo} style={style.loginimg}></Image>
+                {/* <Text style={style.logintext}>{strings.LOGIN}</Text> */}
             </View>
             {/* ---------------------Username Input------------- */}
             <View>

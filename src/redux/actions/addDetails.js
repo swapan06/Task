@@ -1,6 +1,7 @@
 import type from "../type";
 
 export const AddSubmit = (data) => {
+    console.log(data)
     return {
         type: type.ADD_DETAILS,
         payload: data

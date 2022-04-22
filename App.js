@@ -110,12 +110,12 @@ const App = () => {
         dispatch({
           type: type.ADD_DETAILS,
           payload: res
-        })
+        });
       }
-    })
+    });
 
 
-  }, [])
+  }, []);
   // ---------------------Select Language-----------------------//
   const getLng = async () => {
     try {

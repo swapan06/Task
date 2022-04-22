@@ -17,18 +17,14 @@ function Home({ navigation }) {
     const list = useSelector((state) => state.datainput.list)
     const data = useSelector((state) => state.userStatus.userData)
 
-    console.log(list)
-    // setItem(list);w
-
+    // console.log(list)
+    // setItem(list);
 
     function passEditDetails(data, index) {
 
         console.log(data);
         navigation.navigate('Add Details', { Data: data, Index: index })
     }
-    // const logout = () => {
-    //     actions.logout()
-    // }
     const logout = async () => {
         try {
             await GoogleSignin.signOut();
