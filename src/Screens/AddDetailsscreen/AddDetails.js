@@ -57,7 +57,6 @@ function AddDetails({ navigation, route }) {
             setshowAddress(false);
             dispatch(editDetails({ id: editById, name, age, roll, phone, address }))
             navigation.navigate('Home')
-
         }
     }
     // -------------submitt BUTTON----
@@ -84,7 +83,6 @@ function AddDetails({ navigation, route }) {
             setshowAddress(false);
             dispatch(AddSubmit(data))
             navigation.navigate('Home')
-
         }
     }
     return (
