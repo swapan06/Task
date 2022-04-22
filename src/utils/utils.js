@@ -1,6 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
 export const setItem = async (data) => {
+
     try {
         let jsonValue = JSON.stringify(data)
         await AsyncStorage.setItem('list', jsonValue)
@@ -26,6 +27,7 @@ export const getItem = async () => {
 };
 
 export const storeLogin = async (data) => {
+    console.log('utils set login data', data)
     console.log(data, '------------store>my>data')
     try {
         let jsonValue = JSON.stringify(data)
@@ -41,7 +43,7 @@ export const getLogin = async () => {
     try {
         const value = await AsyncStorage.getItem('LoginData')
         let jsonValue = JSON.parse(value)
-        // console.log(jsonValue, 'get------data')
+        console.log(jsonValue, 'get------data')
         return jsonValue
     } catch (e) {
         // error reading value

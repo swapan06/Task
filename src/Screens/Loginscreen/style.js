@@ -6,10 +6,10 @@ import fontFamily from '../../style/fontFamily';
 const style = StyleSheet.create({
 
     logintext: {
-        fontSize: 36,
+        fontSize: 18,
         fontFamily: fontFamily.mulishBold,
         color: 'black',
-        marginVertical: 50,
+        marginVertical: 8,
         textTransform: 'uppercase',
     },
     usertext: {
