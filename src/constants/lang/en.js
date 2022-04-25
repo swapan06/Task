@@ -23,4 +23,5 @@ export default {
     ADD_DETAILS: "Add Details",
 
 
+
 }

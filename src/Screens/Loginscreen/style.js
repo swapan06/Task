@@ -38,6 +38,16 @@ const style = StyleSheet.create({
         height: width / 1.5,
         width: width / 1,
     },
+    textstyle: {
+        color: colors.black,
+        fontFamily: fontFamily.mulishSemiBold,
+        fontSize: 16,
+    },
+    signupstyle: {
+        fontFamily: fontFamily.mulishBold,
+        fontSize: 16,
+        color: colors.textBlue
+    },
 
 })
 export default style

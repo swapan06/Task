@@ -6,13 +6,15 @@ import { useDispatch } from 'react-redux'
 import { onfbLogin, signIn } from '../../../App'
 import { images } from '../../constants/images'
 import strings, { changeLaguage } from '../../constants/lang'
+import navigationStrings from '../../constants/navigationStrings'
 import actions from '../../redux/actions'
 import styles from '../../style/style'
 import style from '../Loginscreen/style'
+import SignUp from '../SignUpscreen/SignUp'
 
 
 
-function Login(navigation) {
+function Login({ navigation }) {
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
     // -------show error----------
@@ -73,6 +75,12 @@ function Login(navigation) {
                     <Text onPress={Logindata} style={style.btntext}>{strings.SUBMIT}</Text>
                 </View>
             </TouchableOpacity>
+            <View style={{ flexDirection: 'row' }}>
+                <Text style={style.textstyle}>Don't have an account ?</Text>
+                <TouchableOpacity onPress={() => navigation.navigate(navigationStrings.SIGNUP)}>
+                    <Text style={style.signupstyle}> Sign Up</Text>
+                </TouchableOpacity>
+            </View>
             {/* --------------------Image Logo----------------------- */}
             <View style={{ marginVertical: 4, flexDirection: 'row' }}>
                 <TouchableOpacity onPress={signIn}>
