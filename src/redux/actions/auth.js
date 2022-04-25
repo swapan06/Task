@@ -1,3 +1,5 @@
+import { SIGNUP } from "../../config/urls";
+import { apiPost } from "../../utils/apiutils";
 import store from "../store";
 import type from "../type"
 
@@ -10,6 +12,10 @@ export const Submit = (data) => {
         payload: data
     })
 };
+
+export function signUp(data) {
+    return apiPost(SIGNUP, data);
+}
 
 export const logout = () => {
 

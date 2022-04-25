@@ -13,7 +13,7 @@ function HomeStack() {
 
                 <Stack.Screen name='Home' component={Home} options={{ headerShown: 'true', headerStyle: { backgroundColor: '#f5821d', }, headerTitleStyle: { color: 'white', } }} />
                 <Stack.Screen name='Add Details' component={AddDetails} options={{ headerShown: 'true', headerStyle: { backgroundColor: '#f5821d', }, headerTitleStyle: { color: 'white', } }} />
-                {/* <Stack.Screen name={navigationStrings.SIGNUP} component={SignUp} options={{ headerShown: false, headerTitleStyle: { color: 'white', } }} /> */}
+
             </Stack.Navigator>
         </>
     )

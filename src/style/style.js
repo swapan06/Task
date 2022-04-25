@@ -11,6 +11,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: 'white',
     },
+    signupcontainer: {
+        flex: 1,
+        alignItems: 'center',
+        backgroundColor: 'white',
+
+    },
+
     //-------Textinput------//
     input: {
         height: width / 8,
@@ -31,7 +38,7 @@ const styles = StyleSheet.create({
     },
     // -----error style-----//
     error: {
-        fontSize: 12,
+        fontSize: 10,
         color: 'red',
         textAlign: 'left',
         fontFamily: fontFamily.mulishBold,

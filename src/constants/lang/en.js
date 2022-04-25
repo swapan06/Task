@@ -21,6 +21,17 @@ export default {
     ENTER_PASSWORD: "Enter Password",
     HOME: "Home",
     ADD_DETAILS: "Add Details",
+    FIRST_NAME: "First name",
+    ENTER_FIRST_NAME: "Enter First name",
+    ENTER_YOUR_FIRST_NAME: "Enter Your First Name",
+    LAST_NAME: "Last name",
+    ENTER_LAST_NAME: "Enter Last name",
+    ENTER_YOUR_LAST_NAME: "Enter Your Last Name",
+    EMAIL: "Email",
+    ENTER_EMAIL: " Enter email",
+    ENTER_YOUR_EMAIL: "Enter your email",
+    SIGNUP_TO_YOUR_ACCOUNT: "Signup to your account"
+
 
 
 
