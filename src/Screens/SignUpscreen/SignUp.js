@@ -14,13 +14,19 @@ const baseUrl = "http://192.168.100.101:8001/api/signup"
 
 // create a component
 const SignUp = ({ navigation }) => {
-    const [name, setName] = useState('');
-    const [password, setPassword] = useState('');
+    const [firstname, first_name] = useState('');
+    const [lastname, last_name] = useState('');
+    const [Password, password] = useState('');
+    const [Email, email] = useState('');
+    const [phoneno, phone] = useState('');
     // -------show error----------
-    const [showname, setshowName] = useState(false);
+    const [showfirstname, setFirstName] = useState(false);
+    const [showlastname, setLastName] = useState(false);
+    const [showemail, setshowEmail] = useState(false);
+    const [showphone, setshowPhone] = useState(false);
     const [showpassword, setshowPassword] = useState(false);
     const dispatch = useDispatch()
-    const data = { name, password }
+    const data = { firstname,lastname, password,email,phone }
 
     const Signupdata = () => {
 
@@ -40,20 +46,22 @@ const SignUp = ({ navigation }) => {
     const onSignup = async () => {
 
         let apiData = {
-            first_name: "Code",
-            last_name: "Brew",
-            email: "CodeBrew1@gmail.com",
-            phone: '98765414569',
-            phone_code: "91",
-            country_code: "IN",
-            device_token: 'KDKFJDKFDFKDFDF',
+            first_name: firstname,
+            last_name: lastname,
+            email: Email,
+            phone: phoneno,
+            phone_code: "91 ",
+            country_code: " IN",
+            device_token: 'sdfgdfhfjy ',
             device_type: Platform.OS == 'ios' ? 'IOS' : 'ANDROID',
-            password: '123456'
+            password: Password,
         }
+
         try {
             const res = await actions.signUp(apiData)
             console.log("singnup api res_+++++", res)
             alert("User signup successfully....!!!")
+            
         } catch (error) {
             console.log("error raised", error)
             alert(error?.message)
@@ -73,9 +81,9 @@ const SignUp = ({ navigation }) => {
                     placeholder={strings.ENTER_FIRST_NAME}
                     keyboardType='email-address'
                     style={styles.input}
-                    onChangeText={(event) => setName(event)} />
+                    onChangeText={(event) => first_name(event)} />
             </View>
-            {showname ? (<Text style={styles.error}> {strings.ENTER_YOUR_FIRST_NAME}</Text>) : null}
+            {/* {showname ? (<Text style={styles.error}> {strings.ENTER_YOUR_FIRST_NAME}</Text>) : null} */}
             {/* ----------------- */}
             <View>
                 <Text style={style.usertext}>{strings.LAST_NAME}</Text>
@@ -83,18 +91,18 @@ const SignUp = ({ navigation }) => {
                     placeholder={strings.ENTER_LAST_NAME}
                     keyboardType='email-address'
                     style={styles.input}
-                    onChangeText={(event) => setName(event)} />
+                    onChangeText={(event) => last_name(event)} />
             </View>
-            {showname ? (<Text style={styles.error}> {strings.ENTER_YOUR_LAST_NAME}</Text>) : null}
+            {/* {showname ? (<Text style={styles.error}> {strings.ENTER_YOUR_LAST_NAME}</Text>) : null} */}
             {/*  */}
             <View>
                 <Text style={style.usertext}>{strings.PHONE_NO}</Text>
                 <TextInput placeholder={strings.PHONE_NO}
                     keyboardType='numeric'
-                    onChangeText={event => setPhone(event)}
+                    onChangeText={event => phone(event)}
                     style={styles.input} />
             </View>
-            {showname ? (<Text style={styles.error}>{strings.ENTER_YOUR_PHONENO}</Text>) : null}
+            {/* {showname ? (<Text style={styles.error}>{strings.ENTER_YOUR_PHONENO}</Text>) : null} */}
             {/*----------------------Password Input---------------  */}
             <View>
                 <Text style={style.usertext}>{strings.EMAIL}</Text>
@@ -102,18 +110,18 @@ const SignUp = ({ navigation }) => {
                     placeholder={strings.ENTER_EMAIL}
                     keyboardType='email-address'
                     style={styles.input}
-                    onChangeText={(event) => setPassword(event)} />
+                    onChangeText={(event) => email(event)} />
             </View>
-            {showname ? (<Text style={styles.error}> {strings.ENTER_YOUR_EMAIL}</Text>) : null}
+            {/* {showname ? (<Text style={styles.error}> {strings.ENTER_YOUR_EMAIL}</Text>) : null} */}
             <View>
                 <Text style={style.usertext}>{strings.PASSWORD}</Text>
                 <TextInput
                     placeholder={strings.ENTER_PASSWORD}
                     keyboardType='email-address'
                     style={styles.input}
-                    onChangeText={(event) => setPassword(event)} />
+                    onChangeText={(event) => password(event)} />
             </View>
-            {showname ? (<Text style={styles.error}> {strings.ENTER_YOUR_PASSWORD}</Text>) : null}
+            {/* {showname ? (<Text style={styles.error}> {strings.ENTER_YOUR_PASSWORD}</Text>) : null} */}
             {/* ------------------Submit Button------------------ */}
             <TouchableOpacity>
                 <View style={styles.buttonView}>

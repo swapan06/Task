@@ -1,5 +1,5 @@
 import { SIGNUP } from "../../config/urls";
-import { apiPost } from "../../utils/apiutils";
+import { apiPost } from "../../utils/utils";
 import store from "../store";
 import type from "../type"
 

@@ -9,7 +9,7 @@ const style = StyleSheet.create({
         fontSize: 18,
         fontFamily: fontFamily.mulishBold,
         color: 'black',
-        marginTop: 20,
+        marginTop: 40,
         textTransform: 'uppercase',
     },
     usertext: {
